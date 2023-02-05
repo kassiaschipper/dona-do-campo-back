@@ -2,12 +2,12 @@ import { notFoundError } from "../../errors/not-found-error.js";
 import newsRepository from "../../repositories/news-repository.js";
 
 async function getNews() {
-    const registrationInfo = await newsRepository.findNews();
+    const news = await newsRepository.findNews();
 
-    if(!registrationInfo){
+    if(!news){
         throw notFoundError();
     }
-    return registrationInfo;
+    return news;
 }
 
 async function postNews(title:string, content:string, createAt: Date) {

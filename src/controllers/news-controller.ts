@@ -8,8 +8,8 @@ import { news } from "@prisma/client";
 export async function getNews(_req: Request, res: Response) {
 
    try {
-      const registrationIfo = await newsService.getNews();
-      return res.status(httpStatuss.OK).send(registrationIfo);
+      const newsData = await newsService.getNews();
+      return res.status(httpStatuss.OK).send(newsData);
    } catch (error) {
       return res.sendStatus(httpStatuss.NOT_FOUND);
    }

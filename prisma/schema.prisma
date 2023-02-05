@@ -11,8 +11,9 @@ model matches {
   id      Int       @id @default(autoincrement())
   home    String
   visitor String
-  date    DateTime  @db.Date
-  time    DateTime  @db.Time(6)
+  date    String
+  time    String
+  court   String
   results results[]
 }
 
