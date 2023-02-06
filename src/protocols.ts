@@ -3,3 +3,9 @@ export type ApplicationError = {
     message: string;
   };
   
+  export type Result = {
+    homeScore: number;
+    visitorScore: number;
+  };
+  
+

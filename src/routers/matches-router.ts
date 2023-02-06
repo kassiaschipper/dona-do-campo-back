@@ -8,6 +8,7 @@ const matchesRouter = Router();
 
 matchesRouter
     .get("/", getMatches)
+    //.get("/results/:matchId", getMatcheWithResult)
     .all("/*", authenticateToken)
     .post("/", validateBody(matcheSchema) ,insertMatchesData);
 

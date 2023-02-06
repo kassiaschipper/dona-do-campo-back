@@ -6,6 +6,7 @@ import { userRouter } from './routers/user-router.js';
 import { authenticationRouter } from './routers/authentication-router.js';
 import { newsRouter } from './routers/news-router.js';
 import { matchesRouter } from './routers/matches-router.js';
+import { teamRouter } from './routers/team-router.js';
 
 loadEnv();
 
@@ -17,7 +18,8 @@ app
     .use("/user", userRouter)
     .use("/auth", authenticationRouter)
     .use("/news", newsRouter)
-    .use("/matches", matchesRouter);
+    .use("/matches", matchesRouter)
+    .use("/team", teamRouter);
 
 export function init(): Promise<Express> {
   connectDb();
