@@ -16,14 +16,30 @@ export async function getMatches(_req: Request, res: Response) {
 }
 
 export async function insertMatchesData(req: AuthenticatedRequest, res: Response) {
-   const { home, visitor, date, time, court} : matches = req.body; 
+   const { home, visitor, date, time, court, homeImage, visitorImage } : matches = req.body; 
 
    if(!home || !visitor || !date || !time || !court) {
       return res.sendStatus(httpStatuss.BAD_REQUEST);
    }
    
    try {
-      const matches = await matchesService.postMatchesData(home, visitor, date, time,court);
+      const matches = await matchesService.postMatchesData(home, visitor, date, time,court, homeImage, visitorImage);
+      return res.status(httpStatuss.OK).send(matches);
+   } catch (error) {
+      console.log(error)
+      return res.sendStatus(httpStatuss.INTERNAL_SERVER_ERROR);
+   }
+}
+
+export async function insertResults(req: AuthenticatedRequest, res: Response) {
+   const {  } : matches = req.body; 
+
+   if(!home || !visitor || !date || !time || !court) {
+      return res.sendStatus(httpStatuss.BAD_REQUEST);
+   }
+   
+   try {
+      const matches = await matchesService.postMatchesData(home, visitor, date, time,court, homeImage, visitorImage);
       return res.status(httpStatuss.OK).send(matches);
    } catch (error) {
       console.log(error)
